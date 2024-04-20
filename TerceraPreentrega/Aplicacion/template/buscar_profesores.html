@@ -1,0 +1,14 @@
+{% extends "padre.html" %}
+{% load static %}
+{% block contenido %}
+    <h2 type="title" style="color:blue"><b>Buscar Profesores</b></h2>
+    <form action="buscar_p" method="GET">
+        <p><u>Apellido del profesor: </u></p>
+        <input type="text" name="apellido" id="apellido">
+        <button>Buscar</button>
+
+
+    </form>
+
+
+{%endblock%}

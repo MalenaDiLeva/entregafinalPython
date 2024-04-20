@@ -1,0 +1,34 @@
+
+{% extends 'padre.html' %}
+
+{% load static %}
+
+{% block contenido %}
+    
+    <main class="container">
+        <h1 class=" text-center title" style="color: blue;"><u><b> Cursos </b></u></h1>
+        <a href="alta_curso" class=" btn btn-primary btn-sm "> Nuevo Curso </a>
+            <h2 class="text title" style="color:aquamarine"><u><b>Nuestros cursos:</b></u></h2>
+            <table class="table text-center">
+                <thead>
+                    <tr>
+                        <th>id</th>
+                        <th>Nombre</th>
+                        <th>Camada</th>
+                    </tr>        
+                </thead>
+                <tbody>
+                    {% for n in cursos %}
+                        <tr>
+                            <td>{{n.id}}</td>
+                            <td>{{n.nombre}}</td>
+                            <td>{{n.camada}}</td>
+                            {% if request.user.is_authenticated %}
+                            <td><a href="{% url 'eliminar_curso' n.id %}" class="btn btn-danger"> BORRAR </a></td>
+                            <td><a href="{% url 'editar_curso' n.id %}" class="btn btn-warning btn-sm"> EDITAR </a></td>
+                            {% endif %}
+                        </tr>
+                    {% endfor %}
+                </tbody>
+        </main>
+{% endblock %}

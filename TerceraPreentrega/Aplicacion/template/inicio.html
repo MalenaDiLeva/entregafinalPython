@@ -1,0 +1,27 @@
+{% extends 'padre.html' %}
+{% load static %}
+{% block contenido %}
+    <h2>{{mensaje}}</h2>
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-md-4">
+                <div class="card">
+                    <img src="{% static 'Aplicacion/assets/img/testimonials-3.jpg' %}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{usuario}}</h5>
+                        <p class="card-text"> Estudiante de 4to año de Historia </p>
+                        <a href="{% url 'editarPerfil' %}"class="btn btn-warning"> Editar Perfil </a>
+                        <form method="post" action="{% url 'Logout' %}">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-danger"> Logout</button>
+                        </form>
+                    
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  
+
+{% endblock %}
